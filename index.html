@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather API</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <style>
+    .suggestions {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      background-color: white;
+      z-index: 1000;
+    }
+
+    .suggestion-item {
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .suggestion-item:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+  <body
+    class="h-screen w-screen flex items-center justify-center bg-gradient-to-b from-orange-500 via-white to-green-600"
+  >
+    <div
+      class="w-full max-w-lg bg-gradient-to-tr from-[#00feba] to-[#5b548a] mx-auto text-white rounded-2xl py-10 px-8 text-center"
+    >
+      <h1 class="text-xl pb-5 text-[#fff41e]">
+        78th Independence Day of India 2024
+      </h1>
+      <div class="w-full flex justify-between items-center relative">
+        <input
+          id="city-input"
+          class="border-none outline-none bg-white text-black py-3 px-6 h-14 rounded-full flex-1 mr-4 text-lg"
+          type="search"
+          placeholder="Enter City Name"
+          spellcheck="false"
+        />
+        <button
+          id="search-btn"
+          class="border-none outline-none bg-white rounded-full w-14 h-14 cursor-pointer flex justify-center items-center"
+        >
+          <img class="w-4" src="images/search.png" alt="search" />
+        </button>
+
+        <ul
+          id="suggestions"
+          class="absolute top-full w-full bg-white border rounded-xl mt-2 z-10 hidden"
+        ></ul>
+      </div>
+
+      <div id="weather-info" class="w-full mt-12 mx-auto items-center hidden">
+        <img
+          id="weather-icon"
+          class="w-44 mt-8 mx-auto animate-pulse"
+          alt="weather icon"
+        />
+        <h1 id="weather-temp" class="text-7xl capitalize"></h1>
+        <h2 id="weather-city" class="text-4xl capitalize"></h2>
+        <h3 id="weather-condition" class="text-2xl mt-4"></h3>
+        <div class="w-full flex items-center justify-between mt-12">
+          <div class="flex items-center text-left">
+            <img class="w-10 mr-2" src="images/humidity.png" alt="humidity" />
+            <div>
+              <p id="weather-humidity" class="text-2xl capitalize"></p>
+              <p class="text-2xl capitalize">Humidity</p>
+            </div>
+          </div>
+          <div class="flex items-center text-left">
+            <img class="w-10 mr-2" src="images/wind.png" alt="wind" />
+            <div>
+              <p id="weather-wind" class="text-2xl capitalize"></p>
+              <p class="text-2xl capitalize">Wind Speed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p
+        id="initial-message"
+        class="capitalize mt-10 text-left ml-5 animate-bounce"
+      >
+        Enter a City Name to Get The Weather.☝️
+      </p>
+      <p id="error-message" class="capitalize mt-10 text-left ml-5 hidden"></p>
+    </div>
+    <script src="index.js"></script>
+    <script src="cityNames.js"></script>
+  </body>
+</html>
